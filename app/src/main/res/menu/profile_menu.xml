@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_account" android:title="Account Details" android:icon="@android:drawable/ic_menu_info_details"/>
+    <item android:id="@+id/menu_settings" android:title="Settings" android:icon="@android:drawable/ic_menu_preferences"/>
+    <item android:id="@+id/menu_sales" android:title="Sales / Profit" android:icon="@android:drawable/ic_menu_agenda"/>
+    <item android:id="@+id/menu_summary" android:title="Summary Report" android:icon="@android:drawable/ic_menu_view"/>
+</menu>
