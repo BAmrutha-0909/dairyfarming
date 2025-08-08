@@ -1,20 +1,24 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="12dp">
 
     <TextView
-        android:id="@+id/buffaloName"
+        android:id="@+id/buffaloNameTextView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Buffalo Name"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/buffaloMilkProduction"
+        android:id="@+id/buffaloLitersTextView"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="Liters"
         android:textSize="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_marginTop="4dp" />
 </LinearLayout>

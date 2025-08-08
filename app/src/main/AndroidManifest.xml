@@ -26,6 +26,8 @@
         <activity android:name=".AddCattleActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".ReportActivity" />
+        <activity android:name=".AddBuffaloActivity" />
+
         <activity android:name=".RecordMilkActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".ProfileActivity" />

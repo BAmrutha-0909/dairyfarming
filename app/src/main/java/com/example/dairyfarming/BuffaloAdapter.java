@@ -5,19 +5,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
 public class BuffaloAdapter extends RecyclerView.Adapter<BuffaloAdapter.ViewHolder> {
 
-    private List<BuffaloModel> buffaloList;
-    private Context context;
-    private OnBuffaloClickListener listener;
-
     public interface OnBuffaloClickListener {
-        void onBuffaloClick(BuffaloModel buffalo);
+        void onClick(BuffaloModel buffalo);
+        void onLongClick(BuffaloModel buffalo);
     }
+
+    private Context context;
+    private List<BuffaloModel> buffaloList;
+    private OnBuffaloClickListener listener;
 
     public BuffaloAdapter(Context context, List<BuffaloModel> buffaloList, OnBuffaloClickListener listener) {
         this.context = context;
@@ -25,19 +28,29 @@ public class BuffaloAdapter extends RecyclerView.Adapter<BuffaloAdapter.ViewHold
         this.listener = listener;
     }
 
+    public void updateList(List<BuffaloModel> newList) {
+        buffaloList = newList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public BuffaloAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_buffalo, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BuffaloAdapter.ViewHolder holder, int position) {
         BuffaloModel buffalo = buffaloList.get(position);
-        holder.name.setText(buffalo.getName());
-        holder.milkProduction.setText("Milk: " + buffalo.getMilkProduction() + " L/day");
-        holder.itemView.setOnClickListener(v -> listener.onBuffaloClick(buffalo));
+        holder.nameTextView.setText(buffalo.getName());
+        holder.litersTextView.setText(buffalo.getMilkProduction());
+
+        holder.itemView.setOnClickListener(v -> listener.onClick(buffalo));
+        holder.itemView.setOnLongClickListener(v -> {
+            listener.onLongClick(buffalo);
+            return true;
+        });
     }
 
     @Override
@@ -45,13 +58,13 @@ public class BuffaloAdapter extends RecyclerView.Adapter<BuffaloAdapter.ViewHold
         return buffaloList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, milkProduction;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView nameTextView, litersTextView;
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.buffaloName);
-            milkProduction = itemView.findViewById(R.id.buffaloMilkProduction);
+            nameTextView = itemView.findViewById(R.id.buffaloNameTextView);
+            litersTextView = itemView.findViewById(R.id.buffaloLitersTextView);
         }
     }
 }

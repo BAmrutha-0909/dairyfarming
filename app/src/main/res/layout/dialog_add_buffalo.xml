@@ -1,26 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- dialog_add_buffalo.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/addBuffaloDialogLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="24dp">
 
     <EditText
         android:id="@+id/buffaloNameInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="56dp"
         android:hint="Buffalo Name"
         android:inputType="textPersonName"
-        android:padding="10dp" />
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
 
     <EditText
         android:id="@+id/buffaloLitersInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="350dp"
+        android:layout_height="56dp"
         android:hint="Liters"
         android:inputType="numberDecimal"
-        android:padding="10dp"
-        android:layout_marginTop="16dp" />
+        android:padding="12dp"
+        android:layout_marginBottom="24dp" />
 
+    <Button
+        android:id="@+id/addBuffaloButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
